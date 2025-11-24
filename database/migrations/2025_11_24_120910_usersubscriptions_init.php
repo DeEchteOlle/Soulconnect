@@ -11,16 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        schema::create('reports', function (Blueprint $table){
+        schema::create('user_subscriptions',function (Blueprint $table){
             $table->id();
-            $table->foreignId('reported_id')
+            $table->foreignId('users_id')
             ->constrained('users')
             ->cascadeOnDelete();
-            $table->string('reason');
-            $table->foreignId('reporter_id')
-            ->constrained('users')
+            $table->foreignId('subscription_plans_id')
+            ->constrained('subscription_plans')
             ->cascadeOnDelete();
-            $table->dateTime('reported_at');
+            $table->string('status');
+            $table->dateTime('started_at');
+            $table->dateTime('ends_at');
+            $table->dateTime('renewed_at');
+
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        schema::dropIfExists('reports');
+        schema::dropIfExists('user_subscriptions');
     }
 };

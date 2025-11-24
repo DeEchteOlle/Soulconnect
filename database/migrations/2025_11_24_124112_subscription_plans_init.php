@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        schema::create('conversations',function (Blueprint $table){
+        schema::create('subscription_plans', function(Blueprint $table){
             $table->id();
-            $table->foreignId('user1_id')
-            ->constrained('users')
-            ->cascadeOnDelete();
-            $table->foreignId('user2_id')
-            ->constrained('users')
-            ->cascadeOnDelete();
+            $table->decimal('price');
+            $table->string('name');
+            $table->dateTime('updated_at');
+            $table->integer('duration_in_days');
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        schema::dropIfExists('conversations');
+        schema::dropIfExists('subscription_plans');
     }
 };

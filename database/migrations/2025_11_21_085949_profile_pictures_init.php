@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('profile_pictures',function (Blueprint $table){
-            $table->id('ProfilePictureID');
-            $table->foreignId('UserID')
+            $table->id();
+            $table->foreignId('users_id')
             ->nullable()
             ->constrained('users')
             ->nullOnDelete();
-            $table->string('FilePath');
-            $table->boolean('IsVerified')->default('0');
+            $table->string('file_path');
+            $table->boolean('is_verified')->default('0');
         });
     }
 

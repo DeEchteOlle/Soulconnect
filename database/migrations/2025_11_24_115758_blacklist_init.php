@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         schema::create('blacklist',function(Blueprint $table){
-            $table->id('BlacklistID');
-            $table->foreignId('UserID')
+            $table->id();
+            $table->foreignId('users_id')
             ->constrained('users')
             ->cascadeOnDelete();
-           $table->string('Reason');
-           $table->boolean('IsActive'); 
+           $table->string('reason');
+           $table->boolean('is_active'); 
         });
     }
 

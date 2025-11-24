@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('messages',function(Blueprint $table ){
-            $table->id('MessageID');
-            $table->foreignId('SenderID')
+            $table->id();
+            $table->foreignId('sender_id')
             ->constrained('users');
-            $table->string('Content');
-            $table->boolean('IsRead');
-            $table->foreignId('ConversationID')
-            ->constrained('Conversations')
+            $table->string('content');
+            $table->boolean('is_read');
+            $table->foreignId('conversation_id')
+            ->constrained('conversations')
             ->cascadeOnDelete();
-            $table->datetime('SentAt');
-            $table->boolean('IsDeleted');
+            $table->datetime('sent_at');
+            $table->boolean('is_deleted');
         });
     }
 

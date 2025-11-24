@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         schema::create('likes' ,function (Blueprint $table){
-            $table->id('LikeID');
-            $table->foreignId('UserID_sender')
+            $table->id();
+            $table->foreignId('sender_id')
             ->constrained('users')
             ->cascadeOnDelete();
-            $table->foreignId('UserID_receiver')
+            $table->foreignId('receiver_id')
             ->constrained('users')
             ->cascadeOnDelete();
-            $table->timestamp('LikedAt');
+            $table->timestamp('liked_at');
         });
     }
 

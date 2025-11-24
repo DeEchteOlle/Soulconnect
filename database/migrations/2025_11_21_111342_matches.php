@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('matches',function(Blueprint $table){
-            $table->id('MatchID');
-            $table->foreignId('UserID_1')
+            $table->id();
+            $table->foreignId('user1_id')
             ->constrained('users');
-            $table->foreignId('UserID_2')
+            $table->foreignId('user2_id')
             ->constrained('users');
         });
     }

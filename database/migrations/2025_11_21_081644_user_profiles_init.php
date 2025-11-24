@@ -12,26 +12,26 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_profiles',function (Blueprint $table){
-            $table->id('UserProfileID');
-            $table->foreignId('UserID')
+            $table->id();
+            $table->foreignId('users_id')
             ->nullable()
             ->constrained('users')
             ->nullOnDelete();
-            $table->foreignId('ProfilePictureID')
+            $table->foreignId('profile_pictures_id')
             ->nullable()
             ->constrained('profile_pictures')
             ->nullOnDelete();
-            $table->string('OneLiner');
-            $table->string('RelationValues');
-            $table->string('PartnerQualities');
-            $table->string('Gender');
-            $table->string('GenderPreference');
-            $table->date('DateOfBirth');
-            $table->string('Zipcode');
-            $table->string('RelationType')->default('relatie');
-            $table->boolean('HasPets');
-            $table->string('AlcoholUsage')->default('dagelijks');
-            $table->string('HasKids')->default('nee');
+            $table->string('one_liner');
+            $table->string('relation_values');
+            $table->string('partner_qualities');
+            $table->string('gender');
+            $table->string('gender_preference');
+            $table->date('date_of_birth');
+            $table->string('zipcode');
+            $table->string('relation_type')->default('relatie');
+            $table->boolean('has_pets');
+            $table->string('alcohol_usage')->default('dagelijks');
+            $table->string('has_kids')->default('nee');
         });
     }
 

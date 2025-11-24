@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        schema::create('conversations',function (Blueprint $table){
+        schema::create('payment_history',function(Blueprint $table){
             $table->id();
-            $table->foreignId('user1_id')
-            ->constrained('users')
-            ->cascadeOnDelete();
-            $table->foreignId('user2_id')
-            ->constrained('users')
-            ->cascadeOnDelete();
+            $table->foreignId('user_subscription_id')
+            ->constrained('user_subscriptions');
+            $table->foreignId('users_id')
+            ->constrained('users');
+            $table->decimal('price_paid');
+            $table->dateTime('payment_date');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        schema::dropIfExists('conversations');
+        schema::dropIfExists('payment_history');
     }
 };

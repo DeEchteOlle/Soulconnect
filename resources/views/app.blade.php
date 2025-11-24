@@ -1,49 +1,37 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('components.master')
 
-        {{-- Inline script to detect system dark mode preference and apply it immediately --}}
-        <script>
-            (function() {
-                const appearance = '{{ $appearance ?? "system" }}';
+@section('hide_footer', true)
 
-                if (appearance === 'system') {
-                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-                    if (prefersDark) {
-                        document.documentElement.classList.add('dark');
-                    }
-                }
-            })();
-        </script>
+@section('content')
+    <div class="container mx-auto py-10 text-center">
+        <h2 class="text-4xl font-bold mb-6 text-emerald-700 ">Welcome to Soulconnect</h2>
 
-        {{-- Inline style to set the HTML background color based on our theme in app.css --}}
-        <style>
-            html {
-                background-color: oklch(1 0 0);
-            }
+        <img src="{{ asset('cheeseburg.png') }}" alt="Simple Image" class="mx-auto rounded-lg shadow-lg">
+    </div>
 
-            html.dark {
-                background-color: oklch(0.145 0 0);
-            }
-        </style>
+    <div class="container mx-auto py-10 text-center">
+        <button class="p-4 rounded-2xl bg-emerald-50 text-emerald-700 font-semibold">
+            Dashboard
+        </button>
+    </div>
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+    <div class="container mx-auto py-10 text-center">
+        <h2 class="text-2xl font-bold text-emerald-700">
+            Our Mission
+        </h2>
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <div class="mt-4 flex justify-center text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="2"
+                 stroke="currentColor"
+                 class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M19 9l-7 7-7-7"/>
+            </svg>
+        </div>
+    </div>
 
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-
-        @viteReactRefresh
-        @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
-        @inertiaHead
-    </head>
-    <body class="font-sans antialiased">
-        @inertia
-    </body>
-</html>
+@endsection

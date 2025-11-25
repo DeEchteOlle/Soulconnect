@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('profile_pictures',function (Blueprint $table){
             $table->id();
             $table->foreignId('users_id')
-            ->nullable()
             ->constrained('users')
-            ->nullOnDelete();
+            ->cascadeOnDelete();
             $table->string('file_path');
             $table->boolean('is_verified')->default('0');
         });

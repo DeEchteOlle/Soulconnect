@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('user_profiles',function (Blueprint $table){
             $table->id();
             $table->foreignId('users_id')
-            ->nullable()
             ->constrained('users')
-            ->nullOnDelete();
+            ->cascadeOnDelete();
             $table->foreignId('profile_pictures_id')
-            ->nullable()
             ->constrained('profile_pictures')
-            ->nullOnDelete();
+            ->cascadeOnDelete();
             $table->string('one_liner');
             $table->string('relation_values');
             $table->string('partner_qualities');

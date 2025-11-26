@@ -45,4 +45,11 @@ class ProfileController extends Controller
             using: fn (User $user) => $user->delete()
         );
     }
+
+    public function show(Request $request)
+    {
+        return response()->json([
+            'message' => 'Profile data retrieved successfully',
+        ]);
+    }
 }

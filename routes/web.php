@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\WorkOS\Http\Middleware\ValidateSessionWithWorkOS;
+use App\Http\Controllers\Settings\ProfileController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -25,6 +26,8 @@ Route::middleware([
         return Inertia::render('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/api/profile', [ProfileController::class, 'show']);
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

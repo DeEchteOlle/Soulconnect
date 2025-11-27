@@ -3,15 +3,18 @@
 namespace App\Models;
 use App\Enums\Gender;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class UserProfile extends Model
 {
+    use HasFactory;
     protected $fillable= [
         'users_id',
         'profile_pictures_id',
         'one_liner',
         'relation_values',
-        'partner_qualities',
+        'partner_qualities', 
         'gender',
         'gender_preference',
         'date_of_birth',

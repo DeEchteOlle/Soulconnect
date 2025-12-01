@@ -1,62 +1,58 @@
-<nav class="w-full bg-emerald-50 border-b border-gray-300">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="min-h-screen flex flex-col bg-[linear-gradient(135deg,#FF5864,#FF8A00)]">
+
+<nav class="w-full  fixed top-0 left-0 z-50 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        <div class="text-xl font-bold text-emerald-700">
-            ♥ SoulConnect
-        </div>
+        <div class="text-xl font-bold text-white">♥ SoulConnect</div>
+
         <div class="hidden md:flex space-x-6">
-            <a href="/" class="text-emerald-700 hover:text-emerald-900">Home</a>
-            <a href="/dashboard" class="text-emerald-700 hover:text-emerald-900">Dashboard</a>
-            <a href="/account" class="text-emerald-700 hover:text-emerald-900">Account</a>
-            <a href="/mission" class="text-emerald-700 hover:text-emerald-900">Our Mission</a>
+            <a href="/" class="text-white hover:text-gray-200 hover:underline transition">Home</a>
+            <a href="/dashboard" class="text-white hover:text-gray-200 hover:underline transition">Dashboard</a>
+            <a href="/account" class="text-white hover:text-gray-200 hover:underline transition">Account</a>
+            <a href="/mission" class="text-white hover:text-gray-200 hover:underline transition">Our Mission</a>
 
             @auth
-                <form action="{{ route('logout') }}" method="POST">
+                <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf
-                    <button
-                        type="submit"
-                        class="text-emerald-700 hover:text-emerald-900"
-                    >
-                        Logout
+                    <button type="submit" class="text-white hover:text-gray-200 hover:underline transition">Logout
                     </button>
                 </form>
             @else
-                <a href="{{ route('login') }}" class="text-emerald-700 hover:text-emerald-900">
-                    Login
-                </a>
+                <a href="{{ route('login') }}"
+                   class="text-white hover:text-gray-200 hover:underline transition">Login</a>
             @endauth
         </div>
 
-        <div class="md:hidden">
-            <button id="mobile-menu-button" class="focus:outline-none">
-                <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
-                     viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
+        <div class="md:hidden relative">
+            <button id="mobile-menu-button" class="focus:outline-none text-white">
+                ☰
             </button>
+            <div id="mobile-menu" class="absolute right-0 mt-2 w-48 bg-[#FF8A00] shadow-lg rounded-md hidden">
+                <a href="/" class="block px-4 py-2 text-white  transition">Home</a>
+                <a href="/dashboard" class="block px-4 py-2 text-white  transition">Dashboard</a>
+                <a href="/account" class="block px-4 py-2 text-white  transition">Account</a>
+                <a href="/mission" class="block px-4 py-2 text-white  transition">Our Mission</a>
+
+                @auth
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                                class="w-full text-left px-4 py-2 text-white hover:bg-[#FF6B3C] transition">Logout
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="block px-4 py-2 text-white hover:bg-[#FF6B3C] transition">Login</a>
+                @endauth
+            </div>
         </div>
-    </div>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-emerald-50 border-t border-gray-300">
-        <a href="/" class="block px-6 py-2 text-emerald-700 hover:text-emerald-900">Home</a>
-        <a href="/dashboard" class="block px-6 py-2 text-emerald-700 hover:text-emerald-900">Dashboard</a>
-        <a href="/account" class="block px-6 py-2 text-emerald-700 hover:text-emerald-900">Account</a>
-        <a href="/mission" class="block px-6 py-2 text-emerald-700 hover:text-emerald-900">Our Mission</a>
-
-        @auth
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button
-                    type="submit"
-                    class="w-full text-left block px-6 py-2 text-emerald-700 hover:text-emerald-900"
-                >
-                    Logout
-                </button>
-            </form>
-        @else
-            <a href="{{ route('login') }}" class="block px-6 py-2 text-emerald-700 hover:text-emerald-900">
-                Login
-            </a>
-        @endauth
     </div>
 </nav>
 
@@ -68,3 +64,6 @@
         menu.classList.toggle('hidden');
     });
 </script>
+
+</body>
+</html>

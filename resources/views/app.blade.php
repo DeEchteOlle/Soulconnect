@@ -1,37 +1,27 @@
 @extends('components.master')
 
-@section('hide_footer', true)
-
-
 @section('content')
-    <div class="container mx-auto py-10 text-center">
-        <h2 class="text-4xl font-bold mb-6 text-emerald-700 ">Welcome to Soulconnect</h2>
+    <div id="topContent" class="container mx-auto pt-20 py-10 text-center transition-opacity duration-700">
+        <h1 class="text-3xl font-bold mb-6 text-white">
+            Love is Just a Click Away
+        </h1>
 
-        <img src="{{ asset('cheeseburg.png') }}" alt="Simple Image" class="mx-auto rounded-lg shadow-lg">
+        <img src="{{ asset('happy.png') }}"
+             alt="Happy Couple"
+             class="mx-auto rounded-full shadow-lg w-40 h-40 object-cover">
+
     </div>
 
-    <div class="container mx-auto py-10 text-center">
-        <button class="p-4 rounded-2xl bg-emerald-50 text-emerald-700 font-semibold">
-            Dashboard
-        </button>
-    </div>
-
-    <div class="container mx-auto py-10 text-center">
-        <h2 class="text-2xl font-bold text-emerald-700">
-            Our Mission
-        </h2>
-
-        <div class="mt-4 flex justify-center text-emerald-700">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="2"
-                 stroke="currentColor"
-                 class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M19 9l-7 7-7-7"/>
-            </svg>
-        </div>
+    <div id="buttonContent" class="container mx-auto py-10 text-center transition-opacity duration-700 space-y-4">
+        <a href="{{ route('login') }}"
+           class="block w-80 mx-auto px-5 py-3 rounded-2xl bg-white text-black font-semibold hover:bg-gray-100 transition">
+            Login
+        </a>
+        <p class="text-white"> or </p>
+        <a href=""
+           class="block w-80 mx-auto px-5 py-3 rounded-2xl bg-white text-black font-semibold hover:bg-gray-100 transition">
+            Register
+        </a>
     </div>
 
 @endsection

@@ -8,7 +8,7 @@ class UserProfile extends Model
 {
     protected $fillable= [
         'users_id',
-        'profile_pictures_id',
+        'profile_pictures_id', 
         'one_liner',
         'relation_values',
         'partner_qualities',

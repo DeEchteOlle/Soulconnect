@@ -48,8 +48,27 @@ class ProfileController extends Controller
 
     public function show(Request $request)
     {
+        //$user = $request->user();
+        $user = User::first(); // For testing purposes
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        $profile = $user->userProfile;
+        if (!$profile) {
+            return response()->json(['message' => 'Profile not found', 'user' => $user], 404);
+        }
+
         return response()->json([
-            'message' => 'Profile data retrieved successfully',
+            'id' => $profile->id,
+            'one_liner' => $profile->one_liner,
+            'relation_values' => $profile->relation_values,
+            'partner_qualities' => $profile->partner_qualities,
+            'gender' => $profile->gender,
+            'gender_preference' => $profile->gender_preference,
+            'date_of_birth' => $profile->date_of_birth,
+            'zipcode' => $profile->zipcode,
+            'has_pets' => $profile->has_pets,
         ]);
     }
 }

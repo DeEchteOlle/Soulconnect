@@ -14,5 +14,7 @@ Route::get('authenticate', function (AuthKitAuthenticationRequest $request) {
 })->middleware(['guest']);
 
 Route::post('logout', function (AuthKitLogoutRequest $request) {
-    return $request->logout();
+    return $request->logout(
+        config(key: 'APP.URL')     // redirect URI
+    );
 })->middleware(['auth'])->name('logout');

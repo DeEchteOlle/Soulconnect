@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Conversation extends Model
 {
+    protected $guarded =
+    [
+
+    ];
     
     public function user1(){
         return $this->belongsTo(user::class, 'user1_id');

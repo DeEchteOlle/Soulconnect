@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Matches extends Model
 {
+    protected $fillable = [
+        'user1_id',
+        'user2_id'
+        
+     ];
     public function user1(){
         return $this->belongsTo(user::class, 'user1_id');
     }

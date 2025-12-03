@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use App\Enums\Gender;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,17 +19,14 @@ class UserProfile extends Model
         'zipcode',
         'has_pets'
     ];
+
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'users_id');
     }
 
     public function profilePicture()
     {
         return $this->belongsTo(ProfilePicture::class);
     }
-    protected $casts = 
-    [
-    'gender' => Gender::class,
-    ];
 }

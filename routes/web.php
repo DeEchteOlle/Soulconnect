@@ -29,8 +29,6 @@ Route::middleware([
     
 });
 
-Route::get('/api/profiletest', [ProfileController::class, 'show']);
-Route::post('/api/profiletest', [ProfileController::class, 'store']); 
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

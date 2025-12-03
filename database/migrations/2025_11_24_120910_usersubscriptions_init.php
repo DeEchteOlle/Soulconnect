@@ -23,6 +23,7 @@ return new class extends Migration
             $table->dateTime('started_at');
             $table->dateTime('ends_at');
             $table->dateTime('renewed_at');
+            $table->timestamps();
 
         });
     }

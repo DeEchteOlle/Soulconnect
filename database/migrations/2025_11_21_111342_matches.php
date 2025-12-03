@@ -17,6 +17,7 @@ return new class extends Migration
             ->constrained('users');
             $table->foreignId('user2_id')
             ->constrained('users');
+            $table->timestamps();
         });
     }
 

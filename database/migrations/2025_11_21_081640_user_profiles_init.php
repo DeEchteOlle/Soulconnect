@@ -30,6 +30,7 @@ return new class extends Migration
             $table->boolean('has_pets');
             $table->string('alcohol_usage')->default('dagelijks');
             $table->string('has_kids')->default('nee');
+            $table->timestamps();
         });
     }
 

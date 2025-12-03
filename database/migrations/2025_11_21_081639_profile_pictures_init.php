@@ -18,6 +18,7 @@ return new class extends Migration
             ->cascadeOnDelete();
             $table->string('file_path');
             $table->boolean('is_verified')->default('0');
+            $table->timestamps();
         });
     }
 

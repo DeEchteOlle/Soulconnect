@@ -19,6 +19,7 @@ return new class extends Migration
             ->constrained('users');
             $table->decimal('price_paid');
             $table->dateTime('payment_date');
+            $table->timestamps();
         });
     }
 

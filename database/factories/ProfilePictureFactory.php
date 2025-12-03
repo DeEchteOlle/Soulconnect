@@ -9,7 +9,7 @@ class ProfilePictureFactory extends Factory
     public function definition(): array
     {
         return [
-            'path' => 'default.jpg',  
+            'file_path' => 'default.jpg',  
         ];
     }
 }

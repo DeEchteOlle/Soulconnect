@@ -20,8 +20,7 @@ return new class extends Migration
             $table->foreignId('conversation_id')
             ->constrained('conversations')
             ->cascadeOnDelete();
-            $table->datetime('sent_at');
-            $table->boolean('is_deleted');
+           $table->timestamps();
         });
     }
 

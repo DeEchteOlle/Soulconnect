@@ -18,6 +18,7 @@ return new class extends Migration
             ->cascadeOnDelete();
            $table->string('reason');
            $table->boolean('is_active'); 
+           $table->timestamps();
         });
     }
 

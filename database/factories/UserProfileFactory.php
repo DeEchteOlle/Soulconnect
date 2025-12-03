@@ -18,12 +18,7 @@ class UserProfileFactory extends Factory
             'one_liner' => $this->faker->sentence(6),
 
             // JSON fields — store arrays or text, depending on your DB setup
-            'relation_values' => json_encode([
-                'loyalty'    => rand(1, 10),
-                'humour'     => rand(1, 10),
-                'ambition'   => rand(1, 10),
-                'kindness'   => rand(1, 10),
-            ]),
+            'relation_values' => json_encode($this->faker->words(5)),
 
             'partner_qualities' => json_encode($this->faker->words(5)),
 

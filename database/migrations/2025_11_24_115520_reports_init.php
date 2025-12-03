@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('reporter_id')
             ->constrained('users')
             ->cascadeOnDelete();
-            $table->dateTime('reported_at');
+          $table->timestamps();
         });
     }
 

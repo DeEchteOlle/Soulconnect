@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('receiver_id')
             ->constrained('users')
             ->cascadeOnDelete();
-            $table->timestamp('liked_at');
+            $table->timestamps();
         });
     }
 

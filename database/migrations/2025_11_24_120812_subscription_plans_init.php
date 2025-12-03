@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->decimal('price');
             $table->string('name');
-            $table->dateTime('updated_at');
+            $table->timestamps();
             $table->integer('duration_in_days');
         });
     }

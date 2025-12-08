@@ -10,7 +10,7 @@ class ProfilePictureFactory extends Factory
     {
         return [
             'users_id' => \App\Models\User::factory(),
-            'file_path' => 'default.jpg',  
+            'file_path' => 'users_id/default.jpg',  
         ];
     }
 }

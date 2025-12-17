@@ -5,7 +5,7 @@ use Inertia\Inertia;
 use Laravel\WorkOS\Http\Middleware\ValidateSessionWithWorkOS;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 })->name('home');
 
 Route::get('/mission', function () {

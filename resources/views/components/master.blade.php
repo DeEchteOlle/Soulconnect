@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="min-h-screen flex flex-col bg-[linear-gradient(135deg,#FF5864,#FF8A00)] overflow-hidden">
+<body class="min-h-screen flex flex-col bg-[linear-gradient(135deg,#FF5864,#FF8A00)]">
 
 @if (!View::hasSection('hide_header'))
     @include('components.header')

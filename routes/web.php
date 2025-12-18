@@ -16,6 +16,12 @@ Route::get('/account', function () {
     return view('account');
 })->name('Account');
 
+Route::get('/accountedit', function () {
+    return view('accountedit');
+})->name('Account.edit');
+
+
+
 Route::middleware(['auth', ValidateSessionWithWorkOS::class])->group(function () {
     Route::get('dashboard', function () {
         return view('dashboard');

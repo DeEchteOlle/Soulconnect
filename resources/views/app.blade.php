@@ -1,5 +1,8 @@
 @extends('components.master')
 
+@section('hide_footerdash', true)
+@section('hide_header', true)
+
 @section('content')
     <div id="topContent" class="container mx-auto pt-20 py-10 text-center transition-opacity duration-700">
         <h1 class="text-3xl font-bold mb-6 text-white">

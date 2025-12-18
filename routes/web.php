@@ -5,24 +5,26 @@ use Inertia\Inertia;
 use Laravel\WorkOS\Http\Middleware\ValidateSessionWithWorkOS;
 
 Route::get('/', function () {
-    return Inertia::render('welcome');
+    return view('app');
 })->name('home');
 
 Route::get('/mission', function () {
-    return Inertia::render('ourmission');
-})->name('Our Mission');
-
+    return view('mission');
+})->name('mission');
 
 Route::get('/account', function () {
-    return Inertia::render('account');
+    return view('account');
 })->name('Account');
 
-Route::middleware([
-    'auth',
-    ValidateSessionWithWorkOS::class,
-])->group(function () {
+Route::get('/accountedit', function () {
+    return view('accountedit');
+})->name('Account.edit');
+
+
+
+Route::middleware(['auth', ValidateSessionWithWorkOS::class])->group(function () {
     Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
+        return view('dashboard');
     })->name('dashboard');
 });
 
